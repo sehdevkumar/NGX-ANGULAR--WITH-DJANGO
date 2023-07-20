@@ -1,0 +1,48 @@
+  <h2>Add New Author</h2>
+      <form class="mt-20" [formGroup]="authorForm">
+        <div class="mb-3">
+          <label for="fname" class="form-label">
+            First Name
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="fname"
+            placeholder="First Name"
+            formControlName="first_name"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="lname" class="form-label">
+            Last Name
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="lname"
+            placeholder="Last Name"
+            formControlName="last_name"
+            />
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">
+            Email
+          </label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="email"
+            formControlName="email"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="about" class="form-label">
+            About
+          </label>
+          <textarea formControlName="about" class="form-control" id="about" rows="3" placeholder="About"></textarea>
+        </div>
+        <button class="btn btn-info" (click)="onSubmit()" [disabled]="!authorForm.valid">Add Author</button>
+      </form>

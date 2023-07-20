@@ -1,0 +1,9 @@
+<ul class="nav nav-tabs">
+  <ng-container *ngFor="let t of tabs">
+    <li class="nav-item" (click)="onSwitchTabs(t)">
+      <a class="nav-link" [class.active]="t?.activate" aria-current="page" href="#">{{t.tabName}}</a>
+    </li>
+
+  </ng-container>
+
+</ul>

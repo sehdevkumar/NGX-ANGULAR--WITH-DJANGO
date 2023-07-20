@@ -1,0 +1,18 @@
+
+<div class="d-flex flex-column gap-3">
+  <ng-container *ngFor="let author of authorsList$ | async as error">
+  <ng-container *ngIf="!error">Error</ng-container>
+    <div class="list-group">
+      <div href="#" class="list-group-item list-group-item-action shadow-lg " aria-current="true">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1 text-black">{{author?.first_name}} {{author?.last_name}}</h5>
+          <i class="bi bi-archive text-danger" style="cursor: pointer;" (click)="onDeleteAuthor($event,author)"></i>
+        </div>
+        <p class="mb-1">{{author?.about}}</p>
+        <small class="font-monospace text-decoration-underline">Email: {{author?.email}}</small>
+      </div>
+    </div>
+  </ng-container>
+
+</div>
+

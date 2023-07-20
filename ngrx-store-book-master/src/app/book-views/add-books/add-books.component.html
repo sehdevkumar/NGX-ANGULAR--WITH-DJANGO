@@ -1,0 +1,39 @@
+<h2>Add New Author</h2>
+<form class="mt-20" [formGroup]="addFormGp">
+  <div class="mb-3">
+    <label for="fname" class="form-label">
+      Title
+    </label>
+    <input
+      type="text"
+      class="form-control"
+      id="fname"
+      placeholder="First Name"
+      formControlName="title"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">
+      Select Author
+    </label>
+    <select class="form-select" formControlName="id">
+        <option *ngFor="let a of authors$ | async" [value]="a?.id">{{a?.first_name}} {{a?.last_name}}</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="about" class="form-label">
+      Description
+    </label>
+    <textarea
+      formControlName="description"
+      class="form-control"
+      id="about"
+      rows="3"
+      placeholder="description"
+    ></textarea>
+  </div>
+
+  <button class="btn btn-info mb-3" (click)="onAddBook()">Add Book</button>
+</form>
