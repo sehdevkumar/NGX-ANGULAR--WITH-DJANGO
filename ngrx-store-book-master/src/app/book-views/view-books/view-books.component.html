@@ -1,0 +1,18 @@
+
+<div class="d-flex flex-column gap-3">
+  <ng-container *ngFor="let book of bookList$ | async">
+    <div class="list-group">
+      <div href="#" class="list-group-item list-group-item-action shadow-lg " aria-current="true">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1 text-black">{{book?.title}} by <span class="font-monospace"
+                >{{getBookAuthorName(book?.author)}}
+          </span></h5>
+          <i class="bi bi-archive text-danger" style="cursor: pointer;" (click)="onDeleteAuthor($event,book)"></i>
+        </div>
+        <p class="mb-1">{{book?.description}}</p>
+        <small class="font-monospace text-decoration-underline">Date: {{book?.created_at | date:'dd/MM/yyyy'}} {{book?.created_at | date:'HH:mm:ss'}}</small>
+      </div>
+    </div>
+  </ng-container>
+
+</div>

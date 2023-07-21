@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpclientService } from '../services/httpclient.service';
-import { PostBook } from '../typings/api.typings';
+import { GetBook, PostBook } from '../typings/api.typings';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,12 @@ export class BookService {
 
   onGetAllBooks() {
      return this.httpClient.request('get','books/')
+  }
+
+  onDeleteBook(book:GetBook) {
+     let params = new HttpParams()
+     params = params.append('id',book?.id)
+     return this.httpClient.request('delete','books/',params)
   }
 
 }

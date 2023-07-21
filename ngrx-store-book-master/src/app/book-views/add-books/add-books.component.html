@@ -1,4 +1,4 @@
-<h2>Add New Author</h2>
+<h2>Add New Book</h2>
 <form class="mt-20" [formGroup]="addFormGp">
   <div class="mb-3">
     <label for="fname" class="form-label">
@@ -8,16 +8,16 @@
       type="text"
       class="form-control"
       id="fname"
-      placeholder="First Name"
+      placeholder="Title"
       formControlName="title"
     />
   </div>
 
   <div class="mb-3">
-    <label for="email" class="form-label">
+    <label for="author" class="form-label">
       Select Author
     </label>
-    <select class="form-select" formControlName="id">
+    <select class="form-select" formControlName="id" id="author">
         <option *ngFor="let a of authors$ | async" [value]="a?.id">{{a?.first_name}} {{a?.last_name}}</option>
     </select>
   </div>

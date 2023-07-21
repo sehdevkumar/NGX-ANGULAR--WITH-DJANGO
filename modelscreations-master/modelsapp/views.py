@@ -30,6 +30,12 @@ class AuthorView(views.APIView):
 
 
 class BookView(views.APIView):
+    
+    def delete(self,request):
+        books = Book.objects.get(id=request.GET.get("id"))
+        books.delete()
+        return Response(data={'message':'Deleted'},status=status.HTTP_200_OK,content_type='application/json')
+    
     def get(self,request):
         book = Book.objects.all()
         serializer = BookSerializer(book, many=True)

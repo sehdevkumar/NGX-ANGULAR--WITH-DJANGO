@@ -19,6 +19,10 @@ import { AuthorEffects } from './stores/author/author.effects';
 import { ViewAuthorsComponent } from './book-views/view-authors/view-authors.component';
 import { TabNavbarComponent } from './containers/tab-navbar/tab-navbar.component';
 import { tabReducer } from './stores/tabs/tab.reducers';
+import { ViewBooksComponent } from './book-views/view-books/view-books.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './materials';
+import { StatusBarComponent } from './components/status-bar/status-bar.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,9 @@ import { tabReducer } from './stores/tabs/tab.reducers';
     RegisterAuthorsComponent,
     AddBooksComponent,
     ViewAuthorsComponent,
-    TabNavbarComponent
+    TabNavbarComponent,
+    ViewBooksComponent,
+    StatusBarComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +43,9 @@ import { tabReducer } from './stores/tabs/tab.reducers';
       tabs:tabReducer
     }),
     EffectsModule.forRoot([BookEffects,AuthorEffects]),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [HttpclientService,BookService,AuthorService],
   bootstrap: [AppComponent]

@@ -8,6 +8,7 @@ export interface PostBook {
 
 
 export interface GetBook {
+  author?:number;
   title: string;
   id: string;
   description: string;

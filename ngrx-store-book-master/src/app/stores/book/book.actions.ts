@@ -22,3 +22,5 @@ export const setAllBooks = createAction('[Books] Set All Books',props<{books:Get
 export const getAllBooksFailure = createAction('[Books] Get All Books Failure',props<{error:any}>())
 
 
+
+export const deleteBook = createAction('Book Delete',props<{params:GetBook}>())

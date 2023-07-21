@@ -1,20 +1,23 @@
 <app-tab-navbar></app-tab-navbar>
-<div class="container">
+<app-status-bar></app-status-bar>
+<div class="container mt-3">
 
-    <div *ngIf="getSelectedTab?.tabIndex === 1" class="row">
-      <div class="col-sm-8 shadow-lg mt-lg-4 rounded-2">
+    <div *ngIf="getSelectedTab?.tabIndex === 1 || !getSelectedTab" class="row">
+      <div class="col-sm-8">
          <app-register-authors></app-register-authors>
       </div>
-      <div class="col-sm-4  mt-lg-4">
+      <div class="col-sm-4  mt-lg-4 mt-3">
         <app-view-authors></app-view-authors>
       </div>
     </div>
 
-    <div *ngIf="getSelectedTab?.tabIndex === 2 || !getSelectedTab" class="row">
-      <div class="col-sm-8 shadow-lg mt-lg-4 rounded-2">
+    <div *ngIf="getSelectedTab?.tabIndex === 2" class="row">
+      <div class="col-sm-8 ">
           <app-add-books></app-add-books>
       </div>
-      <div class="col-sm-4  mt-lg-4">col-sm</div>
+      <div class="col-sm-4  mt-lg-4">
+          <app-view-books></app-view-books>
+      </div>
 
     </div>
 </div>

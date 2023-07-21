@@ -2,9 +2,8 @@ import { selectGetAuhtors } from './../../stores/author/author.selectors';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { getAllBooks } from 'src/app/stores/book/book.actions';
-import { selectGetBooks } from 'src/app/stores/book/book.selectors';
-import { GetAuthor } from 'src/app/typings/api.typings';
+import { addBook, getAllBooks } from 'src/app/stores/book/book.actions';
+import { GetAuthor, PostBook } from 'src/app/typings/api.typings';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -30,10 +29,14 @@ export class AddBooksComponent implements OnInit {
 
 
   ngOnInit(): void {
-      this.store.select(selectGetBooks).subscribe(res=> {
-      })
-
       this.authors$ = this.store.select(selectGetAuhtors);
+
+    }
+
+    async onAddBook() {
+      const payload:PostBook = this.addFormGp.value;
+      this.store.dispatch(addBook({ book: payload }))
+      this.store.dispatch(getAllBooks())
   }
 
 }

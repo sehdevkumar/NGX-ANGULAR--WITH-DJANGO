@@ -22,13 +22,13 @@ export class TabNavbarComponent {
       tabName:'Add Author',
       tabIndex:1,
       tabClass:'active',
-      activate:false
+      activate:true
     },
     {
       tabName:'Add Book',
       tabIndex:2,
       tabClass:'active',
-      activate:true
+      activate:false
     }
    ]
 
