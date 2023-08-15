@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store, select } from '@ngrx/store';
-import { take } from 'rxjs';
+import { first, take, takeLast } from 'rxjs';
+import { SingletonService } from 'src/app/services/singleton.service';
 import { getAuthors, postAuthorAction, postAuthorSuccess } from 'src/app/stores/author/author.actions';
 import { selectGetAuhtors, selectGetAuthorFailure, selectPostAuthor, selectPostAuthorSuccess } from 'src/app/stores/author/author.selectors';
 import { PostAuthor } from 'src/app/typings/api.typings';
@@ -15,7 +16,7 @@ export class RegisterAuthorsComponent implements OnInit {
 
   authorForm:FormGroup
 
-  constructor(private fb:FormBuilder, private store:Store){
+  constructor(private fb:FormBuilder, private store:Store,private ss:SingletonService){
 
        this.authorForm = fb.group({
          first_name: ['',Validators.required],
@@ -31,6 +32,10 @@ export class RegisterAuthorsComponent implements OnInit {
   ngOnInit(): void {
     this.store.select(selectGetAuthorFailure).subscribe(res=> {
        console.log(res,'failure')
+    })
+
+     this.store.select(selectPostAuthorSuccess).subscribe(res=> {
+       this.ss.onShowStatus('Author Successfully Posted')
     })
   }
 

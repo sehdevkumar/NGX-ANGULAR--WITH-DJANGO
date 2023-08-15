@@ -22,7 +22,7 @@ export const authorReducers = createReducer(
  initialState,
  on(postAuthorAction,(state,{postAuhtor}) => ({...state, postAuthor:postAuhtor,error:null})),
  on(postAuthorFailure,(state,{error}) => ({...state, error:error})),
- on(postAuthorSuccess,(state) => ({...state,error:null})),
+ on(postAuthorSuccess,(state) => ({...state,error:null ,success:true})),
 
  on(getAuthors,(state) => ({...state,error:null})),
  on(getAuthorsFailure,(state,{error}) => ({...state, error:error})),

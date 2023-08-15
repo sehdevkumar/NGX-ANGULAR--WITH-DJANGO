@@ -14,7 +14,8 @@ export const selectPostAuthor = createSelector(
   (state: AuthorsState) => state.postAuthor
 );
 
-export const selectPostAuthorSuccess = createSelector(createAuthorFeatireSelector,(state)=>state);
+export const selectPostAuthorSuccess = createSelector(createAuthorFeatireSelector,(state)=>state.postAuthor
+);
 
 export const selectGetAuhtors = createSelector(
   createAuthorFeatireSelector,

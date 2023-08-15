@@ -23,6 +23,7 @@ import { ViewBooksComponent } from './book-views/view-books/view-books.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './materials';
 import { StatusBarComponent } from './components/status-bar/status-bar.component';
+import { SingletonService } from './services/singleton.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { StatusBarComponent } from './components/status-bar/status-bar.component
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [HttpclientService,BookService,AuthorService],
+  providers: [HttpclientService,BookService,AuthorService,SingletonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
